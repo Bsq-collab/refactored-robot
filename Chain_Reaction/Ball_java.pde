@@ -24,11 +24,11 @@ class Ball {
     bounce();
   }
   void bounce() {
-    if (x==0 || x==200) {
-      dy= -1 * dy;
-    }
-    if (y==0 || y==200) {
+    if (x<=0 || x>=600) {
       dx= -1 * dx;
+    }
+    if (y<=0 || y>=600) {
+      dy= -1 * dy;
     }
   }
   
