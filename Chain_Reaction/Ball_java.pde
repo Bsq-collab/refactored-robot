@@ -17,11 +17,25 @@ class Ball {
     y= random((height-r)+r/2);
     dx=random(10)-5;
     dy= random(10)-5;
+    state = 0; //0 state = regular moving state, 1 state = chain reaction, not moving state
   }
   void move() {
-    x=x+dx;
-    y=y+dy;
-    bounce();
+    if (state==0) {
+      x=x+dx;
+      y=y+dy;
+      bounce();
+    }
+    if (state==1) {
+      dx=0;
+      dy=0;
+      if (rad<15) {
+        rad+=1;}
+      else {
+        while (rad>0) {
+          rad-=1;
+          }
+      }
+    }
   }
   void bounce() {
     if (x<=0 || x>=600) {
