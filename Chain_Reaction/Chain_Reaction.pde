@@ -20,6 +20,11 @@ void draw() {
   }
 }
 void mouseClicked() {
-   balls[0].state=1; //sets one ball's state to 1, which starts the chain reaction
+  /*
+  balls[0].state=1; //sets one ball's state to 1, which starts the chain reaction
    // state only has to change for 1 ball
+   */
+  Ball ball = new Ball(mouseX, mouseY);
+  ball.state = 1;
+  ellipse(ball.x, ball.y, 2*ball.rad, 2*ball.rad);
 }
