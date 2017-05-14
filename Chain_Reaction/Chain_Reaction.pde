@@ -20,4 +20,6 @@ void draw() {
   }
 }
 void mouseClicked() {
+   balls[0].state=1; //sets one ball's state to 1, which starts the chain reaction
+   // state only has to change for 1 ball
 }
