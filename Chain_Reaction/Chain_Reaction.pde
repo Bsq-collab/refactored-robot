@@ -18,15 +18,34 @@ void draw() {
       fill(balls[i].c);
       ellipse(balls[i].x, balls[i].y, 2*balls[i].rad, 2*balls[i].rad);
       balls[i].move();
+      if (balls[i].state > 0 && balls[i].state!= 3) {
+        for (int x=0; x<balls.length; x++) {
+          if (x != i) {
+            if (balls[i].touching(balls[x]) && balls[x].state == 0) {
+              balls[x].state = 1;
+            }
+          }
+        }
+      }
     }
   } else {
     for (int i=0; i<balls.length - 1; i++) {
       fill(balls[i].c);
       ellipse(balls[i].x, balls[i].y, 2*balls[i].rad, 2*balls[i].rad);
       balls[i].move();
+      if (balls[i].state > 0 && balls[i].state!= 3) {
+        for (int x=0; x<balls.length - 1; x++) {
+          if (x != i) {
+            if (balls[i].touching(balls[x]) && balls[x].state == 0) {
+              balls[x].state = 1;
+            }
+          }
+        }
+      }
     }
   }
 }
+
 void mouseClicked() {
   if (!reactionStarted) {
     balls[24] = new Ball(mouseX, mouseY);

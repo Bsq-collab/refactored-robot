@@ -51,7 +51,10 @@ class Ball {
     }
     if (state==2) {
       if (rad>0) {
-      rad-=1;
+        rad-=1;
+      }
+      if (rad==0) {
+        state=3;
       }
     }
   }
@@ -65,7 +68,7 @@ class Ball {
     }
   }
 
-  void changeState() {
-    state += 1;
+  boolean touching(Ball b) {
+    return dist(x, y, b.x, b.y)<=rad+b.rad;
   }
 }
