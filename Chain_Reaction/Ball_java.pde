@@ -42,12 +42,16 @@ class Ball {
     if (state==1) {
       dx=0;
       dy=0;
-      if (rad<15) {
+      if (rad<60) {
         rad+=1;
-      } else {
-        while (rad>0) {
-          rad-=1;
-        }
+      }
+      if (rad==60) {
+        state=2;
+      }
+    }
+    if (state==2) {
+      if (rad>0) {
+      rad-=1;
       }
     }
   }
